@@ -1,0 +1,2 @@
+from car_tracking.models.object_detection.base import BaseObjectDetector
+from car_tracking.models.object_detection.yolov5 import YOLOv5ObjectDetector
