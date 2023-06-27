@@ -9,3 +9,4 @@ packages = [{include = "car_tracking"}]
 [tool.poetry.dependencies]
 python = ">=3.9"
 numpy = "^1.25.0"
+torch = "<2.0.0"
