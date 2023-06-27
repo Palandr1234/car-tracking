@@ -16,7 +16,7 @@ class BoundingBox:
         y2: `np.float32` - Y-coordinate of the bottom-right bounding box' point.
         w: `np.float32` - bounding box' width.
         h: `np.float32` - bounding box' height.
-        conf_score: `np.float32` - bounding box' confidence score. Can be `None` if not provided.
+        conf_score: `np.float32` - confidence score of bounding box. Can be `None` if not provided.
         track_id: np.int32 - track ID.
     """
 
