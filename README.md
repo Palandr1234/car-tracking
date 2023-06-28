@@ -26,6 +26,8 @@ Two options was tested as object detection model:
 
 For both models, the implementation was taken from https://github.com/ultralytics/yolov5
 
+For object tracking, SORT tracking was used ([Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763))
+
 ## Installation
 1. Clone the repository
 2. Install poetry using https://python-poetry.org/docs/
