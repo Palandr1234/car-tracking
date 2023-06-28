@@ -6,7 +6,7 @@ from omegaconf import DictConfig
 from car_tracking.pipelines.base import BasePipeline
 
 
-@hydra.main(version_base=None, config_path='../configs', config_name='tracking.yaml')
+@hydra.main(version_base=None, config_path='../../configs', config_name='tracking.yaml')
 def main(config: DictConfig) -> None:
     save_dir = Path(config.data.save_dir)
     save_dir.mkdir(exist_ok=True, parents=True)
