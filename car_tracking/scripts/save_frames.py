@@ -33,6 +33,10 @@ def parse_args() -> argparse.Namespace:
 
 
 if __name__ == "__main__":
+    """
+    Script for extracting frames from video
+    Takes video from video_path and saves every frame_step frame to save_dir with the name frame_{frame_num}.PNG
+    """
     args = parse_args()
     capture = cv2.VideoCapture(str(args.video_path))
     frame_num = 0
