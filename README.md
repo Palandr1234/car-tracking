@@ -4,6 +4,7 @@
 - [Table of contents](#table-of-contents)
 - [Task](#task)
 - [Data](#data)
+- [Models](#models)
 - [Installation](#installation)
 - [Weights](#weights)
 - [Usage](#usage)
@@ -14,8 +15,8 @@ Create a CV pipeline for tracking cars
 ## Data
 For creating the dataset, the video that was sent with this task was used. The dataset was labelled manually using CVAT annotation tool. For the annotation, the only label "car" was used. The annotations were downloaded in YOLO format.
 
-## Модели
-Были опробованы две модели object detection:
+## Models
+Two options was tested as object detection model:
 
 1. Custom YOLOv5 trained on the data described above (YOLOv5x was used)
 2. Pretrained YOLOv5 
