@@ -22,7 +22,8 @@ The resulting dataset was randomly split into training, validation and testing d
 
 ## Installation
 1. Clone the repository
-2. ```
+2. Install poetry using https://python-poetry.org/docs/
+3. ```
    poetry install
    pip install -U openmim
    mim install mmcv
