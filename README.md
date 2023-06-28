@@ -37,6 +37,7 @@ In ```configs/tracking.yaml``` specify the following lines:
 * ```data_save_dir``` - saving directory
 
 To use it as script:
+
 ```python -m car_tracking.scripts.run_pipeline```
 
 To use it in the code:
