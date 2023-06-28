@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import mmcv
+import tqdm
 import numpy as np
 import cv2
 
@@ -53,7 +54,9 @@ class TrackingPipeline(BasePipeline):
         video_writer = create_cv2_video_writer(video, str(save_dir / 'result.mp4'))
 
         # Process each frame in input video
-        for frame_id, cur_frame in enumerate(mmcv.track_iter_progress(video)):
+        for frame_id, cur_frame in tqdm.tqdm(enumerate(video)):
+            if cur_frame is None:
+                continue
             tracker_predictions = self.detect_and_track(cur_frame)
 
             # Annotate current frame
