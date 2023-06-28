@@ -1,0 +1,29 @@
+defaults:
+  - _self_
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+
+device: cuda:2
+
+pipeline:
+  _target_: car_tracking.pipelines.TrackingPipeline
+  object_detector:
+    _target_: car_tracking.models.object_detection.YOLOv5ObjectDetector
+    weights_path: /home/andrey/yolov5/yolov5x.pt #/home/andrey/yolov5/runs/train/exp66/weights/best.pt
+    device: ${device}
+    conf_thresh: 0.6
+    target_classes: [1, 2, 3, 5, 7] #[0]
+  tracker:
+    _target_: car_tracking.models.object_tracking.SORTTracker
+    max_age: 150
+    min_hits: 3
+    iou_threshold: 0.3
+  font_path: /home/andrey/car-tracking/DejaVuSans.ttf
+
+data:
+  path: /home/andrey/car-tracking/min_trim.mp4
+  save_dir: results
