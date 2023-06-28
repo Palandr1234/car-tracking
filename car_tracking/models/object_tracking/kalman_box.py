@@ -2,7 +2,7 @@ from filterpy.kalman import KalmanFilter
 import numpy as np
 
 
-def convert_bbox_to_z(bbox: np.array[np.float32]) -> np.array[np.float32]:
+def convert_bbox_to_z(bbox: np.ndarray[np.float32]) -> np.ndarray[np.float32]:
     """
     Takes a bounding box in the form [x1,y1,x2,y2] and returns z in the form
     [x,y,s,r] where x,y is the centre of the box and s is the scale/area and r is
@@ -23,7 +23,7 @@ def convert_bbox_to_z(bbox: np.array[np.float32]) -> np.array[np.float32]:
     return np.array([x, y, s, r]).reshape((4, 1))
 
 
-def convert_x_to_bbox(x: np.array[np.float32]):
+def convert_x_to_bbox(x: np.ndarray[np.float32]):
     """
     Takes a bounding box in the centre form [x,y,s,r] and returns it in the form
     [x1,y1,x2,y2] where x1,y1 is the top left and x2,y2 is the bottom right
@@ -45,7 +45,7 @@ class KalmanBoxTracker:
     """
     count = 0
 
-    def __init__(self, bbox: np.array[np.float32]) -> None:
+    def __init__(self, bbox: np.ndarray[np.float32]) -> None:
         """
         Initialize a tracker using initial bounding box
 
@@ -81,7 +81,7 @@ class KalmanBoxTracker:
         self.hit_streak = 0
         self.age = 0
 
-    def update(self, bbox: np.array[np.float32]) -> None:
+    def update(self, bbox: np.ndarray[np.float32]) -> None:
         """
         Updates the state vector with observed bbox.
 
@@ -94,7 +94,7 @@ class KalmanBoxTracker:
         self.hit_streak += 1
         self.kf.update(convert_bbox_to_z(bbox))
 
-    def predict(self) -> np.array[np.float32]:
+    def predict(self) -> np.ndarray[np.float32]:
         """
         Advances the state vector and predicts the bounding box estimate.
 
@@ -111,7 +111,7 @@ class KalmanBoxTracker:
         self.history.append(convert_x_to_bbox(self.kf.x))
         return self.history[-1]
 
-    def get_state(self) -> np.array[np.float32]:
+    def get_state(self) -> np.ndarray[np.float32]:
         """
         Returns:
             Current bounding box estimate.

@@ -9,9 +9,9 @@ from car_tracking.models.object_detection import BoundingBox
 from car_tracking.models.object_tracking.kalman_box import KalmanBoxTracker
 
 
-def match_detections_to_tracks(detections: np.array[np.float32], tracks: np.array[np.float32],
+def match_detections_to_tracks(detections: np.ndarray[np.float32], tracks: np.ndarray[np.float32],
                                iou_threshold: float = 0.3) \
-        -> tuple[np.array[np.uint8], np.array[np.uint8], np.array[np.uint8]]:
+        -> tuple[np.ndarray[np.uint8], np.ndarray[np.uint8], np.ndarray[np.uint8]]:
     """
     Assigns detections to tracked object (both represented as bounding boxes)
 
