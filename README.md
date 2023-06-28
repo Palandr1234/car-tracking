@@ -7,7 +7,7 @@
 - [Модели](#модели)
 - [Обучение](#обучение)
 - [Результаты](#результаты)
-- [Установка и запуск](#установка-и-запуск)
+- [Installation](#installation)
 - [Дальнейшая работа](#дальнейшая-работа)
 
 ## Task
@@ -18,3 +18,11 @@ For creating the dataset, the video that was sent with this task was used. The d
 
 ### Dataset split
 The resulting dataset was randomly split into training, validation and testing datasets. 70% of frames are in the training dataset, 15% - in the validation, 15% - in the testing
+
+## Installation
+1. Clone the repository
+2. ```
+   poetry install
+   pip install -U openmim
+   mim install mmcv
+   ```
