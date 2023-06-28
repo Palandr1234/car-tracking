@@ -54,7 +54,8 @@ class TrackingPipeline(BasePipeline):
         video_writer = create_cv2_video_writer(video, str(save_dir / 'result.mp4'))
 
         # Process each frame in input video
-        for frame_id, cur_frame in tqdm.tqdm(enumerate(video)):
+        for frame_id in tqdm.tqdm(range(len(video))):
+            cur_frame = video[frame_id]
             if cur_frame is None:
                 continue
             tracker_predictions = self.detect_and_track(cur_frame)
