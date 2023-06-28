@@ -1,6 +1,7 @@
 from typing import Optional
 
 import numpy as np
+import torch
 import torchvision
 from scipy.optimize import linear_sum_assignment
 
@@ -25,8 +26,7 @@ def match_detections_to_tracks(detections: np.ndarray[np.float32], tracks: np.nd
     """
     if len(tracks) == 0:
         return np.empty((0, 2), dtype=np.uint8), np.arange(len(detections)), np.empty((0, 5), dtype=np.uint8)
-
-    iou_matrix = torchvision.ops.box_iou(detections, tracks).numpy()
+    iou_matrix = torchvision.ops.box_iou(torch.tensor(detections[:, :-1]), torch.tensor(tracks[:, :-1])).numpy()
 
     if min(iou_matrix.shape) > 0:
         a = (iou_matrix > iou_threshold).astype(np.int32)
@@ -77,7 +77,7 @@ class SORTTracker(BaseTracker):
                 Defaults to 3.
             iou_threshold: Optional[float] - IoU threshold used for associating detections and tracks. Defaults to 0.3.
         """
-        self.max_age = max_age,
+        self.max_age = max_age
         self.min_hits = min_hits
         self.iou_threshold = iou_threshold
         self.frame_count = 0
@@ -131,7 +131,8 @@ class SORTTracker(BaseTracker):
         for i in unmatched_detections:
             self.tracks.append(KalmanBoxTracker(detections[i, :]))
 
-        for i, track in reversed(self.tracks):
+        i = len(self.tracks)
+        for track in reversed(self.tracks):
             d = track.get_state()[0]
             if track.time_since_update < 1 and (track.hit_streak >= self.min_hits or self.frame_count <= self.min_hits):
                 ret_bboxes.append(np.concatenate((d, [track.id + 1])).reshape(1, -1))
