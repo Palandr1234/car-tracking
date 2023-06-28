@@ -3,14 +3,10 @@
 ## Table of contents
 - [Table of contents](#table-of-contents)
 - [Task](#task)
-- [Data](#Data)
-- [Модели](#модели)
-- [Обучение](#обучение)
-- [Результаты](#результаты)
+- [Data](#data)
 - [Installation](#installation)
 - [Weights](#weights)
 - [Usage](#usage)
-- [Дальнейшая работа](#дальнейшая-работа)
 
 ## Task
 Create a CV pipeline for tracking cars
