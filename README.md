@@ -8,6 +8,7 @@
 - [Обучение](#обучение)
 - [Результаты](#результаты)
 - [Installation](#installation)
+- [Weights](#weights)
 - [Usage](#usage)
 - [Дальнейшая работа](#дальнейшая-работа)
 
@@ -28,6 +29,11 @@ The resulting dataset was randomly split into training, validation and testing d
    pip install -U openmim
    mim install mmcv
    ```
+
+## Weights
+The weights of the custom model can be downloaded using the following link: https://drive.google.com/file/d/1OHvpYtIHUYVC8VX5VINJFaGIEVXjkNqg/view?usp=sharing
+
+To download the weights of the pretrained yolov5, download any weights from https://github.com/ultralytics/yolov5#pretrained-checkpoints
 
 ## Usage
 In ```configs/tracking.yaml``` specify the following lines:
