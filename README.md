@@ -5,6 +5,7 @@
 - [Task](#task)
 - [Data](#data)
 - [Models](#models)
+- [Results](#results)
 - [Installation](#installation)
 - [Weights](#weights)
 - [Usage](#usage)
@@ -36,6 +37,11 @@ For object tracking, SORT tracking was used ([Simple Online and Realtime Trackin
    | Val   | 0.993     | 0.994  | 0.995 | 0.992    |
    | Test  | 0.999     | 0.994  | 0.995 | 0.993    |
 2. The metrics for pretrained model was not calculated since it would require relabelling the dataset, and the author did not have the time for it
+
+
+### Visaulizations
+Visualizations for both custom and pretrained models can be found here: https://drive.google.com/drive/folders/1vJDWT1fROW8Uio0nChNWqQFxuaoQekPU?usp=sharing
+
 
 ## Installation
 1. Clone the repository
