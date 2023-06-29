@@ -28,6 +28,15 @@ For both models, the implementation was taken from https://github.com/ultralytic
 
 For object tracking, SORT tracking was used ([Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763))
 
+## Results
+### Metrics
+1. Custom model
+   | Split | Precision | Recall | mAP50 | mAP50-95 |
+   |-------|-----------|--------|-------|----------|
+   | Val   | 0.993     | 0.994  | 0.995 | 0.992    |
+   | Test  | 0.999     | 0.994  | 0.995 | 0.993    |
+2. The metrics for pretrained model was not calculated since it would require relabelling the dataset, and the author did not have the time for it
+
 ## Installation
 1. Clone the repository
 2. Install poetry using https://python-poetry.org/docs/
